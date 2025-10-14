@@ -3,7 +3,7 @@
 
 
     <application
-        android:label="cripto"
+        android:label="Crypto-App"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

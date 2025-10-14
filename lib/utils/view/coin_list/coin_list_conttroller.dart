@@ -1,12 +1,11 @@
 import 'package:get/get.dart';
-import 'package:cripto/utils/services/coins_service/get_coins.dart';
-import 'package:cripto/utils/services/shared_preferences/porfolio_service.dart';
+import 'package:cripto/utils/services/coin_service.dart';
+import 'package:cripto/utils/services/portfolio_service.dart';
 
-class CoinListConttroller extends GetxController {
+class CoinListController extends GetxController {
   var allCoins = <Map<String, String>>[].obs;
   var filteredCoins = <Map<String, String>>[].obs;
   var loading = true.obs;
-
   var searchText = ''.obs;
 
   @override
@@ -16,11 +15,16 @@ class CoinListConttroller extends GetxController {
   }
 
   Future<void> loadCoins() async {
-    loading.value = true;
-    await CoinService().fetchAllCoins();
-    allCoins.value = CoinService().coinsMap.values.toList();
-    filteredCoins.value = allCoins;
-    loading.value = false;
+    try {
+      loading.value = true;
+      await CoinService().fetchAllCoins();
+      allCoins.value = CoinService().coinsMap.values.toList();
+      filteredCoins.value = allCoins;
+    } catch (e) {
+      print("Error fetching coin data: $e");
+    } finally {
+      loading.value = false;
+    }
   }
 
   void filterCoins(String query) {

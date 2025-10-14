@@ -2,7 +2,7 @@
 
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../model/porfolio_model.dart';
+import '../model/porfolio_model.dart';
 
 class PortfolioService {
   static const String _portfolioKey = 'user_portfolio';
@@ -44,7 +44,7 @@ class PortfolioService {
     await savePortfolio(portfolio);
   }
 
-  // ✅ FIXED: Remove coin permanently from SharedPreferences
+  // Remove coin permanently from SharedPreferences
   static Future<void> removeCoin(String coinId) async {
     final portfolio = await loadPortfolio();
     portfolio.removeWhere((item) => item.coinId == coinId);

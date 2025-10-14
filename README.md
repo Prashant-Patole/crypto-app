@@ -1,16 +1,23 @@
-# cripto
+#crypto-app
+<!-- how to use -->
 
-A new Flutter project.
+this app is very simple to use 
+select any crypto currencu you want from the coin-list page
+you can serch crypto by the name and symbol
+at the top right cornner you can see portfolio button to navigate your portfolio
+you can see thier your portfolioes totl value all the currencies you won ant their price 
+if wants to delete or remove any crypto from your porfolio just simply swipe left to remove it 
+and if you wants to chnage the qty of you crypto just simply tap on it and adjust the qty as your wish 
+and if you wants to add more coins then look at the below of your porfolio's value thir is buuton to add more coins 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+<!-- dependencies -->
 
-A few resources to get you started if this is your first Flutter project:
+soo i used 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. http for api services
+2. lottie for annimations 
+3. shared_preferences for localy store data
+4. get for the getx statemanegement 
+5. flutter_launcher_icons for chnaging the app logo 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

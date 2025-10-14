@@ -1,10 +1,10 @@
-import 'package:cripto/utils/view/coin_list/profile.dart';
+import 'package:cripto/utils/view/coin_list/coin_list.dart';
 import 'package:cripto/utils/view/profile/portfolio_conttroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cripto/utils/constants/animations.dart';
 import 'package:lottie/lottie.dart';
-import 'package:cripto/utils/services/coins_service/get_coins.dart';
+import 'package:cripto/utils/services/coin_service.dart';
 
 class PortfolioScreen extends StatelessWidget {
   PortfolioScreen({super.key});
@@ -73,7 +73,7 @@ class PortfolioScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: () async {
-                      await Get.to(() => const Profile());
+                      await Get.to(() => CoinList());
                       controller.loadPortfolio();
                     },
                     icon: const Icon(Icons.add_circle_outline),

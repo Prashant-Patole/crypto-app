@@ -1,21 +1,21 @@
 import 'package:cripto/utils/view/coin_list/coin_list_conttroller.dart';
+import 'package:cripto/utils/view/profile/portfolio_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:cripto/utils/constants/animations.dart';
-import 'package:cripto/utils/view/profile/portfolio_screen.dart';
 
-class Profile extends StatelessWidget {
-  Profile({super.key});
+class CoinList extends StatelessWidget {
+  CoinList({super.key});
 
-  final CoinListConttroller controller = Get.put(CoinListConttroller());
+  final CoinListController controller = Get.put(CoinListController());
 
   void _showAddToPortfolioSheet(
     BuildContext context,
     Map<String, String> coin,
   ) {
-    final TextEditingController _controllerInput = TextEditingController();
-    RxString? errorText = RxString('');
+    final TextEditingController inputController = TextEditingController();
+    String? errorText;
 
     showModalBottomSheet(
       context: context,
@@ -45,16 +45,14 @@ class Profile extends StatelessWidget {
                     const Text("Quantity: "),
                     Expanded(
                       child: TextField(
-                        controller: _controllerInput,
+                        controller: inputController,
                         keyboardType: const TextInputType.numberWithOptions(
                           decimal: true,
                         ),
                         decoration: InputDecoration(
                           hintText: "Enter quantity",
                           border: const OutlineInputBorder(),
-                          errorText: errorText.value.isEmpty
-                              ? null
-                              : errorText.value,
+                          errorText: errorText,
                           suffixIcon: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: const CircleBorder(),
@@ -62,17 +60,18 @@ class Profile extends StatelessWidget {
                             ),
                             onPressed: () async {
                               double? quantity = double.tryParse(
-                                _controllerInput.text,
+                                inputController.text,
                               );
                               if (quantity == null || quantity <= 0) {
                                 setState(() {
-                                  errorText.value =
+                                  errorText =
                                       "Enter a valid non-negative value";
                                 });
                                 return;
                               }
                               await controller.addToPortfolio(coin, quantity);
-                              if (Get.isBottomSheetOpen!) Get.back();
+                              if (Navigator.canPop(context))
+                                Navigator.pop(context);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
@@ -89,8 +88,8 @@ class Profile extends StatelessWidget {
                           ),
                         ),
                         onChanged: (val) {
-                          if (errorText.value.isNotEmpty) {
-                            setState(() => errorText.value = '');
+                          if (errorText != null) {
+                            setState(() => errorText = null);
                           }
                         },
                       ),
@@ -165,8 +164,8 @@ class Profile extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Get.to(() => PortfolioScreen()),
-            child: Column(
-              children: const [
+            child: const Column(
+              children: [
                 Icon(
                   Icons.account_circle_rounded,
                   size: 25,
@@ -182,10 +181,12 @@ class Profile extends StatelessWidget {
         ],
       ),
       body: Obx(() {
-        if (controller.loading.value)
+        if (controller.loading.value) {
           return const Center(child: CircularProgressIndicator());
-        if (controller.filteredCoins.isEmpty)
+        }
+        if (controller.filteredCoins.isEmpty) {
           return const Center(child: Text("No coins found"));
+        }
 
         return Column(
           children: [
