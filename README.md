@@ -1,4 +1,11 @@
 #crypto-app
+
+<!--  -->
+This Flutter app allows users to track cryptocurrencies, view live prices, and manage their portfolio.
+It fetches real-time price data using the CoinGecko API and stores user portfolio details locally using SharedPreferences.
+The app uses GetX for state management, ensuring smooth navigation and reactive updates.
+
+
 <!-- how to use -->
 
 this app is very simple to use 
