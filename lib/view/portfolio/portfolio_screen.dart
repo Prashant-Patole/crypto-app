@@ -1,6 +1,6 @@
-import 'package:cripto/utils/controllers/portfolio_conttroller.dart';
-import 'package:cripto/utils/view/portfolio/widgets/portfolio_list_items.dart';
-import 'package:cripto/utils/view/portfolio/widgets/portfolio_valu_card.dart';
+import 'package:cripto/controllers/portfolio_conttroller.dart';
+import 'package:cripto/view/portfolio/widgets/portfolio_list_items.dart';
+import 'package:cripto/view/portfolio/widgets/portfolio_valu_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,6 +1,6 @@
-import 'package:cripto/utils/constants/animations.dart';
-import 'package:cripto/utils/controllers/portfolio_conttroller.dart';
-import 'package:cripto/utils/view/coin_list/coin_list.dart';
+import 'package:cripto/constants/animations.dart';
+import 'package:cripto/controllers/portfolio_conttroller.dart';
+import 'package:cripto/view/coin_list/coin_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';

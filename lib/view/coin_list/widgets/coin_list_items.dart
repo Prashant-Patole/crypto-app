@@ -1,6 +1,6 @@
-import 'package:cripto/utils/controllers/coin_list_conttroller.dart';
-import 'package:cripto/utils/model/coin_service_model.dart';
-import 'package:cripto/utils/view/coin_list/widgets/bottumsheet.dart';
+import 'package:cripto/controllers/coin_list_conttroller.dart';
+import 'package:cripto/model/coin_service_model.dart';
+import 'package:cripto/view/coin_list/widgets/bottumsheet.dart';
 import 'package:flutter/material.dart';
 
 class CoinListItem extends StatelessWidget {

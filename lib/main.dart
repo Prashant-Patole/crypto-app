@@ -1,4 +1,4 @@
-import 'package:cripto/utils/view/splash_screen/splash_scree.dart';
+import 'package:cripto/view/splash_screen/splash_scree.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 

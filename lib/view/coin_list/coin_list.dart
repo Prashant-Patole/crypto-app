@@ -1,8 +1,8 @@
-import 'package:cripto/utils/constants/animations.dart';
-import 'package:cripto/utils/controllers/coin_list_conttroller.dart';
-import 'package:cripto/utils/view/coin_list/widgets/coin_list_items.dart';
-import 'package:cripto/utils/view/coin_list/widgets/scerchbar.dart';
-import 'package:cripto/utils/view/portfolio/portfolio_screen.dart';
+import 'package:cripto/constants/animations.dart';
+import 'package:cripto/controllers/coin_list_conttroller.dart';
+import 'package:cripto/view/coin_list/widgets/coin_list_items.dart';
+import 'package:cripto/view/coin_list/widgets/scerchbar.dart';
+import 'package:cripto/view/portfolio/portfolio_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';

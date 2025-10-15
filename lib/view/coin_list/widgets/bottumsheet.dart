@@ -1,6 +1,5 @@
-import 'package:cripto/utils/controllers/coin_list_conttroller.dart';
-import 'package:cripto/utils/model/coin_service_model.dart'
-    show CoinServiceModel;
+import 'package:cripto/controllers/coin_list_conttroller.dart';
+import 'package:cripto/model/coin_service_model.dart' show CoinServiceModel;
 import 'package:flutter/material.dart';
 
 class AddToPortfolioSheet extends StatefulWidget {

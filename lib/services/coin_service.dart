@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:cripto/utils/model/coin_service_model.dart';
+import 'package:cripto/model/coin_service_model.dart';
 import 'package:http/http.dart' as http;
 
 class CoinService {

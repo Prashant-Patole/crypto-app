@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:cripto/utils/controllers/coin_list_conttroller.dart';
+import 'package:cripto/controllers/coin_list_conttroller.dart';
 import 'package:flutter/material.dart';
 
 class CoinListSearchBar extends StatelessWidget {

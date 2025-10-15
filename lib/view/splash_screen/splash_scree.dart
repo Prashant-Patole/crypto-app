@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cripto/utils/constants/animations.dart';
-import 'package:cripto/utils/view/coin_list/coin_list.dart';
+import 'package:cripto/constants/animations.dart';
+import 'package:cripto/view/coin_list/coin_list.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

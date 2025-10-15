@@ -1,6 +1,6 @@
-import 'package:cripto/utils/controllers/portfolio_conttroller.dart';
-import 'package:cripto/utils/model/coin_service_model.dart';
-import 'package:cripto/utils/services/coin_service.dart';
+import 'package:cripto/controllers/portfolio_conttroller.dart';
+import 'package:cripto/model/coin_service_model.dart';
+import 'package:cripto/services/coin_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 

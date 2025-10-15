@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:cripto/utils/model/price_service_model.dart';
+import 'package:cripto/model/price_service_model.dart';
 import 'package:http/http.dart' as http;
 
 class PriceService {
