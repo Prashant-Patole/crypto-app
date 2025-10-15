@@ -1,10 +1,11 @@
+import 'package:cripto/utils/model/coin_service_model.dart';
 import 'package:get/get.dart';
 import 'package:cripto/utils/services/coin_service.dart';
 import 'package:cripto/utils/services/portfolio_service.dart';
 
 class CoinListController extends GetxController {
-  var allCoins = <Map<String, String>>[].obs;
-  var filteredCoins = <Map<String, String>>[].obs;
+  var allCoins = <CoinServiceModel>[].obs;
+  var filteredCoins = <CoinServiceModel>[].obs;
   var loading = true.obs;
   var searchText = ''.obs;
 
@@ -18,7 +19,7 @@ class CoinListController extends GetxController {
     try {
       loading.value = true;
       await CoinService().fetchAllCoins();
-      allCoins.value = CoinService().coinsMap.values.toList();
+      allCoins.value = CoinService().coinsList; // coinsList वापर
       filteredCoins.value = allCoins;
     } catch (e) {
       print("Error fetching coin data: $e");
@@ -30,15 +31,15 @@ class CoinListController extends GetxController {
   void filterCoins(String query) {
     searchText.value = query.toLowerCase();
     filteredCoins.value = allCoins.where((coin) {
-      final name = coin['name']?.toLowerCase() ?? '';
-      final symbol = coin['symbol']?.toLowerCase() ?? '';
+      final name = coin.name.toLowerCase();
+      final symbol = coin.symbol.toLowerCase();
       return name.contains(searchText.value) ||
           symbol.contains(searchText.value);
     }).toList();
   }
 
-  Future<void> addToPortfolio(Map<String, String> coin, double quantity) async {
-    final coinId = coin['id'] ?? '';
+  Future<void> addToPortfolio(CoinServiceModel coin, double quantity) async {
+    final coinId = coin.id;
     if (coinId.isNotEmpty && quantity > 0) {
       await PortfolioService.addOrUpdateCoin(coinId, quantity);
     }

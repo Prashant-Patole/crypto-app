@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:cripto/utils/model/coin_service_model.dart';
 import 'package:http/http.dart' as http;
 
 class CoinService {
@@ -7,26 +8,23 @@ class CoinService {
   factory CoinService() => _instance;
   CoinService._internal();
 
-  Map<String, Map<String, String>> coinsMap = {};
+  List<CoinServiceModel> coinsList = [];
   bool _isFetched = false;
 
   Future<void> fetchAllCoins() async {
     if (_isFetched) return;
+
     final url = Uri.parse("https://api.coingecko.com/api/v3/coins/list");
 
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {
-        final List<dynamic> coins = jsonDecode(response.body);
-        for (var coin in coins) {
-          coinsMap[coin['id']] = {
-            'id': coin['id'],
-            'name': coin['name'],
-            'symbol': coin['symbol'],
-          };
-        }
+        final List<dynamic> coinsJson = jsonDecode(response.body);
+        coinsList = coinsJson
+            .map((json) => CoinServiceModel.fromJson(json))
+            .toList();
         _isFetched = true;
-        log("Fetched ${coinsMap.length} coins");
+        log("Fetched ${coinsList.length} coins");
       } else {
         log("Failed to fetch coins: ${response.statusCode}");
       }
